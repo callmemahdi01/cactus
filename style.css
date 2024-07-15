@@ -25,7 +25,12 @@ header {
     text-align: center;
     border-radius: 20px;
     box-shadow: 0 0 10px black;
+
+    display: flex;
+    justify-content: center; /* وسط‌چین کردن افقی */
+    align-items: center; /* وسط‌چین کردن عمودی */
 }
+
 
 span {
     color: #c4f5c3;
