@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <box>
+            <h1>header</h1>
+        </box>
+    </header>
+    <div class="body">
+        <div class="table-container">
+            <table id="gradesTable">
+                <thead>
+                    <tr>
+                        <th class="txt row"></th>
+                        <th class="txt name">نام درس</th>
+                        <th class="txt grade">نمره</th>
+                        <th class="txt unit">واحد</th>
+                        <th class="button_x"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rowr">1</td>
+                        <td><input type="text" name="courseName" placeholder="(اختیاری)"></td>
+                        <td><input type="number" name="courseGrade" placeholder="از 20 نمره" max="20" min="0"></td>
+                        <td><input type="number" name="courseUnits" placeholder="مثلا 2 واحد"></td>
+                        <td><button title="حذف" id="button_x" onclick="removeRow(this)">x</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button class="button add" onclick="addRow()">افزودن ردیف</button>
+        </div>
+        <div>
+            <button class="button addRequiredCourses" onclick="addRequiredCourses()">افزودن دروس ضروری</button>
+        </div>
+        <div>
+            <button class="button save" onclick="saveGrades()">ذخیره دروس</button>
+            <button class="button delete" onclick="clearCache()">حذف دروس</button>
+        </div>
+        <div>
+            <box id="gpaResult">resualt:</box>
+            <button class="button calculate" onclick="calculateGPA()">محاسبه معدل</button>
+        </div>
+    </div>
+    <footer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quo aperiam quia quasi aut sint neque, asperiores consequuntur doloremque facere harum reiciendis? Necessitatibus, fuga quas! Omnis deleniti quibusdam modi ut.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

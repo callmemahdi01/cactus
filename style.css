@@ -1,0 +1,126 @@
+html {
+    font-size: 100%;
+    font-family: vasizmatn;
+    color: white;
+}
+
+body {
+    background-color: #395a7f;
+}
+
+header {
+    position: fixed;
+    background-color: #0a21c0;
+    top: 0%;
+    height: 9%;
+    width: 95%;
+    border-radius: 10px;
+    opacity: .7;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.body {
+    width: 100%;
+}
+
+table {
+    background-color: #a3cae9;
+    border-radius: 20px;
+    margin: 20% 5px 10px 10px;
+    width: calc(100% - 1rem);
+}
+
+input {
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+
+}
+
+input:focus {
+    background-color: rgb(255, 219, 219);
+    border: none;
+}
+
+footer p {
+    background-color: aliceblue;
+    color: #141619;
+}
+
+button {
+    border-radius: 20px;
+    color: white;
+    background-color: #a3cae9;
+    /* border: none; */
+    margin: 10px;
+}
+
+button.addRequiredCourses {
+    display: block;
+    width: calc(100% - 2.2rem);
+    margin: 10px;
+    height: 50px;
+}
+
+button.add{
+    display: block;
+    width: calc(50% - 2rem);
+    height: 50px;
+    background-color: #b7b7b7;
+}
+
+button.save,
+button.delete,
+button.calculate{
+    display: inline;
+    width: calc(50% - 1.9rem);
+    height: 50px;
+}
+
+
+#gpaResult {
+    background-color: #b3b4bd;
+    color: black;
+    border-radius: 20px;
+    display:inline-block;
+    margin: 10px;
+    width: calc(50% - 2rem);
+    height: 50px;
+    position: relative;
+    top: -14px;
+}
+
+.txt.name {
+    width: 27%;
+}
+
+.txt.grade {
+    width: 40%;
+}
+
+.txt.unit {
+    width: 25%;
+}
+.txt.button_x {
+    width: 5%;
+}
+.txt.row {
+    width: 2%;
+}
+
+#button_x {
+    padding: 2.5px 5px;
+    margin: 5px;
+    background-color: #ff0000;
+    color: rgb(243, 243, 243);
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: 200ms;
+}
+
+#button_x:hover{
+    box-shadow: 0px 0px 5px black;
+    transform: translateY(-2px);
+}
