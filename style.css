@@ -11,7 +11,7 @@ body {
 header {
     position:relative;
     background-color: #508D4E;
-    margin: 5px auto 10px auto;
+    margin: 5px auto 5px auto;
     width: calc(100% - 1rem);
     color: #ffffff;
     text-align: center;
