@@ -105,6 +105,7 @@ button.add{
     height: 50px;
     background-color: #a3cae9;
     color: rgb(0, 0, 0);
+    margin: 2rem 0 0 0;
 }
 
 button.add:hover {
@@ -210,7 +211,7 @@ footer {
     border-radius: 10px;
 
     display: flex;
-    justify-content: center; /* وسط‌چین کردن افقی */
+    justify-content: center;
     align-items: center;
 }
 
@@ -220,4 +221,30 @@ footer {
         width: 60%;
         margin: 0 auto;
     }
+    table {
+        width: 60%;
+        margin: 1rem 20%;
+    }
+
+    button.add {
+        width: 30%;
+        margin: 1rem 20% 1rem 1rem;
+    }
+    button.addRequiredCourses {
+        width: 60%;
+        margin: 1rem 20%;
+    }
+    .save_delete {
+        width: 62%;
+        margin: 0px 19%;
+    }
+    .cal_resualt {
+        width: 62%;
+        margin: 0px 19%;
+    }
+    footer {
+        width: 60%;
+        margin: 0rem 20%;
+    }
+        
 }
