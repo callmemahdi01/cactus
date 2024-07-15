@@ -2,16 +2,23 @@ html {
     font-size: 100%;
     font-family: vazirmatn;
     color: white;
+    opacity: .85;
 }
 
 body {
     background-color: #D6EFD8;
+    background-image: url("./img/cactus-512x512.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(5px);
+    background-attachment: fixed;
 }
 
 header {
     position:relative;
     background-color: #508D4E;
-    margin: 5px auto 5px auto;
+    margin: 5px auto 20px auto;
     width: calc(100% - 1rem);
     color: #ffffff;
     text-align: center;
@@ -19,12 +26,16 @@ header {
     box-shadow: 0 0 10px black;
 }
 
+span {
+    color: #c4f5c3;
+}
+
 .body {
     width: 100%;
 }
 
 table {
-    background-color: #508D4E;
+    background-color: #3e793b;
     border-radius: 20px;
     margin: 5px 5px 10px 10px;
     width: calc(100% - 1rem);
@@ -38,7 +49,7 @@ input {
     height: 50px;
     text-align: center;
     font-size: 10px;
-    background-color: #D6EFD8;
+    background-color: #f5fff6;
 }
 
 input:focus {
@@ -60,6 +71,8 @@ button {
     color: #ffffff;
     transition: 200ms;
     border: none;
+    box-shadow: 0 0 5px black;
+    border: 1px solid black;
 }
 
 .button:hover {
@@ -79,6 +92,15 @@ button.add{
     display: block;
     width: calc(50% - 2rem);
     height: 50px;
+    background-color: #80AF81;
+    transition: 200ms;
+    box-shadow: 0 0 5px black;
+    border: 1px solid black;
+}
+
+button.add:hover {
+    background-color: #72ab73;
+    transform: translateY(-2px);
 }
 
 
@@ -95,11 +117,15 @@ button.calculate{
     width: calc(50% - 1.9rem);
     height: 90px;
     background-color: #80AF81;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    transition: 200ms;
+    box-shadow: 0 0 5px black;
+    border: 1px solid black;
 }
 
 button.calculate:hover {
     background-color: #72ab73;
+    transform: translateY(-2px);
 }
 
 #button_x {
@@ -132,6 +158,8 @@ button.calculate:hover {
     text-align: left;
     font-weight: bold;
     direction: ltr;
+    box-shadow: 0 0 5px black;
+    border: 1px solid black;
 }
 
 .txt.name {
