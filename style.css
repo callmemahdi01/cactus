@@ -5,19 +5,17 @@ html {
 }
 
 body {
-    background-color: #395a7f;
+    background-color: #ffffff;
 }
 
 header {
-    position: fixed;
-    background-color: #0a21c0;
-    top: 0%;
-    height: 9%;
-    width: 95%;
-    border-radius: 10px;
-    opacity: .7;
+    position:relative;
+    background-color: #38608e;
+    margin: 5px auto 10px auto;
+    width: calc(100% - 1rem);
+    color: #ffffff;
     text-align: center;
-    margin-top: 1%;
+    border-radius: 20px;
 }
 
 .body {
@@ -25,11 +23,11 @@ header {
 }
 
 table {
-    background-color: #a3cae9;
+    background-color: #5e8ec4;
     border-radius: 20px;
-    margin: 20% 5px 10px 10px;
+    margin: 5px 5px 10px 10px;
     width: calc(100% - 1rem);
-    color: #395a7f;
+    color: #ffffff;
 }
 
 input {
@@ -38,6 +36,7 @@ input {
     height: 50px;
     text-align: center;
     font-size: 10px;
+    background-color: #edf5ff;
 
 }
 
@@ -54,17 +53,17 @@ footer p {
 button {
     border-radius: 20px;
     color: 0a21c0;
-    background-color: #a3cae9;
+    background-color: #38608e;
     margin: 10px;
     font-weight: bold;
-    color: #395a7f;
+    color: #ffffff;
     transition: 200ms;
     border: none;
 }
 
 .button:hover {
-    background-color: #72abd9;
-    box-shadow: 0px 0px 10px #37e57a;
+    background-color: #2e5581;
+    box-shadow: 0px 0px 10px #000000;
     transform: translateY(-2px);
 }
 
@@ -79,7 +78,12 @@ button.add{
     display: block;
     width: calc(50% - 2rem);
     height: 50px;
-    background-color: #ffffff;
+    background-color: #a3cae9;
+    color: rgb(0, 0, 0);
+}
+
+button.add:hover {
+    background-color: #8ab5d8;
 }
 
 button.save,
@@ -93,7 +97,28 @@ button.calculate{
     display: inline;
     width: calc(50% - 1.9rem);
     height: 90px;
-    background-color: white;
+    background-color: #a3cae9;
+    color: rgb(0, 0, 0);
+}
+
+button.calculate:hover {
+    background-color: #8ab5d8;
+}
+
+#button_x {
+    padding: 2.5px 5px;
+    margin: 5px;
+    background-color: #ff6c6c;
+    color: rgb(243, 243, 243);
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: 200ms;
+}
+
+#button_x:hover{
+    box-shadow: 0px 0px 5px black;
+    transform: translateY(-2px);
 }
 
 
@@ -130,21 +155,6 @@ button.calculate{
     width: 2%;
 }
 
-#button_x {
-    padding: 2.5px 5px;
-    margin: 5px;
-    background-color: #ff0000;
-    color: rgb(243, 243, 243);
-    border: none;
-    cursor: pointer;
-    border-radius: 100px;
-    transition: 200ms;
-}
-
-#button_x:hover{
-    box-shadow: 0px 0px 5px black;
-    transform: translateY(-2px);
-}
 
 .show-message {
     position: fixed;
@@ -156,14 +166,23 @@ button.calculate{
     color: #333;
     border-radius: 10px;
     font-family: delbar, Arial, sans-serif;
-    width: 200px;
+    width: 250px;
     padding: 10px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    box-shadow: 0px 0px 15px #333;
+    box-shadow: 0px 0px 15px 5px #333;
     font-family: vazirmatn;
+    font-weight: bold;
 }
 
 .show-message.show {
-    opacity: 0.7;
+    opacity: 0.8;
+}
+
+
+@media (min-width: 768px) {
+    header {
+        width: 60%;
+        margin: 0 auto;
+    }
 }
