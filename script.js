@@ -34,7 +34,7 @@ function calculateGPA() {
     }
 
     const gpa = totalPoints / totalUnits;
-    document.getElementById('gpaResult').innerText = `معدل کل: ${gpa.toFixed(2)}`;
+    document.getElementById('gpaResult').innerText = `* RESUALT:${gpa.toFixed(2)}`;
 }
 
 function saveGrades() {

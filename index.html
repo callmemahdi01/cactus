@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPA</title>
     <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./Vazirmatn-font-face.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -27,7 +28,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="rowr">1</td>
+                        <td class="row">1</td>
                         <td><input type="text" name="courseName" placeholder="(اختیاری)"></td>
                         <td><input type="number" name="courseGrade" placeholder="از 20 نمره" max="20" min="0"></td>
                         <td><input type="number" name="courseUnits" placeholder="مثلا 2 واحد"></td>
@@ -47,7 +48,7 @@
             <button class="button delete" onclick="clearCache()">حذف دروس</button>
         </div>
         <div>
-            <box id="gpaResult">resualt:</box>
+            <box id="gpaResult">* RESUALT:</box>
             <button class="button calculate" onclick="calculateGPA()">محاسبه معدل</button>
         </div>
     </div>

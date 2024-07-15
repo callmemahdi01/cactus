@@ -1,6 +1,6 @@
 html {
     font-size: 100%;
-    font-family: vasizmatn;
+    font-family: vazirmatn;
     color: white;
 }
 
@@ -29,12 +29,15 @@ table {
     border-radius: 20px;
     margin: 20% 5px 10px 10px;
     width: calc(100% - 1rem);
+    color: #395a7f;
 }
 
 input {
     border-radius: 10px;
     width: 100%;
+    height: 50px;
     text-align: center;
+    font-size: 10px;
 
 }
 
@@ -50,10 +53,11 @@ footer p {
 
 button {
     border-radius: 20px;
-    color: white;
+    color: 0a21c0;
     background-color: #a3cae9;
-    /* border: none; */
     margin: 10px;
+    font-weight: bold;
+    color: #395a7f;
 }
 
 button.addRequiredCourses {
@@ -67,28 +71,37 @@ button.add{
     display: block;
     width: calc(50% - 2rem);
     height: 50px;
-    background-color: #b7b7b7;
+    background-color: #ffffff;
 }
 
 button.save,
-button.delete,
-button.calculate{
+button.delete {
     display: inline;
     width: calc(50% - 1.9rem);
     height: 50px;
 }
 
+button.calculate{
+    display: inline;
+    width: calc(50% - 1.9rem);
+    height: 90px;
+    background-color: white;
+}
+
 
 #gpaResult {
-    background-color: #b3b4bd;
+    background-color: #a3cae9;
     color: black;
     border-radius: 20px;
     display:inline-block;
     margin: 10px;
     width: calc(50% - 2rem);
-    height: 50px;
+    height: 90px;
     position: relative;
-    top: -14px;
+    top: -34px;
+    text-align: left;
+    font-weight: bold;
+    direction: ltr;
 }
 
 .txt.name {
