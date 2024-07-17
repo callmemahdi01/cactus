@@ -1,11 +1,11 @@
-const CACHE_NAME = 'gpa-calculator-cache-v1';
+const CACHE_NAME = 'gpa-calculator-cache-v1.1';
 const urlsToCache = [
   '/cactus/',
   '/cactus/index.html',
   '/cactus/style.css',
   '/cactus/script.js',
   '/cactus/reset.css',
-  '/cactus/Vazirmatn-font-face.css',
+  '/cactus/fonts/Vazirmatn-font-face.css',
   '/cactus/img/cactus-512x512.png',
   '/cactus/img/cactus-192x192.png'
 ];
