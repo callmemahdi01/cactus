@@ -6,19 +6,28 @@ html {
 
 body {
     background-color: #dedede;
-    background-image: url("./img/cactus-512x512.png");
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    backdrop-filter: blur(.5rem);
-    background-attachment: fixed;
     opacity: .9;
 }
 
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("./img/cactus-512x512.png");
+    background-size: cover; /* یا 'contain' بسته به نیاز */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    filter: blur(.5rem);
+    z-index: -1;
+}
+
 header {
-    position:relative;
+    position: relative;
     background-color: #38608e;
-    margin: 5px auto 10px auto;
+    margin: 10px auto 10px auto;
     width: calc(100% - 1rem);
     height: 5rem;
     color: #ffffff;
@@ -28,11 +37,23 @@ header {
 
     display: flex;
     justify-content: center; /* وسط‌چین کردن افقی */
-    align-items: center; /* وسط‌چین کردن عمودی */
+    align-items: center; /*وسط‌چین کردن عمودی*/
 }
 
 span {
     color: #5eff00;
+}
+
+.links {
+    /* background-color: #00680e; */
+    border-radius: 5px;
+    color: #d3d3d3;
+    box-shadow: 0 0 5px black;
+}
+
+.links:hover {
+    background-color: #1b972b;
+    box-shadow: 0 0 10px black;
 }
 
 ::placeholder{
@@ -70,10 +91,6 @@ input:focus {
     transform: translateY(-2px);
 }
 
-footer p {
-    background-color: aliceblue;
-    color: #141619;
-}
 
 button {
     border-radius: 20px;
@@ -84,6 +101,7 @@ button {
     color: #ffffff;
     transition: 200ms;
     border: none;
+    box-shadow: 0px 0px 5px #000000;
 }
 
 .button:hover {
@@ -166,11 +184,9 @@ button.calculate:hover {
 .txt.name {
     width: 37%;
 }
-
 .txt.grade {
     width: 40%;
 }
-
 .txt.unit {
     width: 15%;
 }
@@ -184,37 +200,37 @@ button.calculate:hover {
 
 .show-message {
     position: fixed;
-    top: 5%;
+    top: 12%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     background-color: #d3d3d3;
     color: #333;
     border-radius: 10px;
-    font-family: delbar, Arial, sans-serif;
     width: 250px;
     padding: 10px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     box-shadow: 0px 0px 15px 5px #333;
-    font-family: vazirmatn;
+    font-family: vazirmatn, Arial, sans-serif;
     font-weight: bold;
 }
 
 .show-message.show {
+    position: fixed;
     opacity: 0.9;
 }
+
 
 footer {
     background-color: #549131;
     color: #ffffff;
     border-radius: 10px;
-
     display: flex;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: space-around;
     align-items: center;
 }
-
 
 @media (min-width: 768px) {
     header {
@@ -246,5 +262,27 @@ footer {
         width: 60%;
         margin: 0rem 20%;
     }
+    .background {
+        background-size: auto auto;
+    }
         
+}
+
+#scrollToTopBtn {
+    position: sticky;
+    bottom: 20px; /* فاصله از پایین */
+    right: 20px; /* فاصله از راست */
+    display: none; /* مخفی به طور پیش فرض */
+    background-color: #38608e;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 15px 5px #333;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#scrollToTopBtn.show {
+    display: block; /* نمایش زمانی که لازم است */
 }

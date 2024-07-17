@@ -1,0 +1,122 @@
+html {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+body {
+    font-family: vazirmatn, Arial, sans-serif;
+    background-color: #222;
+    color: #fff; /* تغییر رنگ متن به سفید */
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+}
+.container {
+    max-width: 100%;
+    margin: auto;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 10px 1px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+p {
+    direction: rtl;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #FFEB3B; /* زرد */
+}
+
+h4 {
+    text-align: center;
+    color: #F44336; /* قرمز */
+}
+
+h6 {
+    text-align: center;
+}
+
+.skills {
+    margin-top: 20px;
+}
+
+.skill-category {
+    margin: 1rem 0;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-category h3 {
+    background-color: #383838;
+    margin: 0;
+    color: #FFEB3B;
+    border-radius: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    display: flex;
+    background: #FFEB3B;
+    margin: 5px 2rem;
+    border-radius: 4px;
+    color: #222;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: 700;
+}
+
+
+header {
+    display: flex;
+    max-width: 100%;
+    margin: 1rem auto;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 10px 1px rgba(255, 255, 255, 0.1);
+    padding: 0 10px;
+    justify-content: center;
+}
+
+
+footer {
+    display: flex;
+    max-width: 100%;
+    margin: 1rem auto;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 10px 1px rgba(255, 255, 255, 0.1);
+    padding: 10px 10px;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
+
+footer a {
+    background-color: #ffa39c;
+    border-radius: 10px;}
+
+@media (min-width: 768px) {
+    .container {
+        width: 50%;
+    }
+    footer,
+    header {
+        width: 53%;
+        margin: 2rem 22%;
+    }
+}
