@@ -100,15 +100,34 @@ footer {
     margin: 1rem auto;
     background: #333;
     border-radius: 8px;
-    box-shadow: inset 0px 0px 10px 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0px 0px 10px 1px #ffffff1a;
     padding: 10px 10px;
     justify-content: space-around;
     flex-direction: row-reverse;
 }
 
 footer a {
-    background-color: #ffa39c;
-    border-radius: 10px;}
+    color: #F44336;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(108, 108, 108);
+    font-weight: 500;
+}
+
+footer a:hover {
+    background-color: #474747;
+}
+
+.back {
+    text-align: center;
+    background-color: #333;
+    border-radius: 10px;
+}
+.back a {
+    color: #F44336;
+    text-align: center;
+    background-color: #333;
+    font-weight: 200;
+}
 
 @media (min-width: 768px) {
     .container {

@@ -45,15 +45,18 @@ span {
 }
 
 .links {
-    /* background-color: #00680e; */
     border-radius: 5px;
     color: #d3d3d3;
     box-shadow: 0 0 5px black;
+    padding: 10px;
+    background-color: #54952e;
+    transition: 200ms;
 }
 
 .links:hover {
     background-color: #1b972b;
     box-shadow: 0 0 10px black;
+    transform: translateY(-2px);
 }
 
 ::placeholder{
@@ -69,6 +72,7 @@ table {
     color: #ffffff;
     box-shadow: 0 0 10px black;
     text-shadow: 0 0 5px black;
+    padding: 1rem 0px;
 }
 
 input {
@@ -123,7 +127,7 @@ button.add{
     height: 50px;
     background-color: #a3cae9;
     color: rgb(0, 0, 0);
-    margin: 2rem 0 0 0;
+    margin: 2rem .8rem 0 0;
 }
 
 button.add:hover {
@@ -230,6 +234,8 @@ footer {
     flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 0 0 10px black;
+    padding: 1rem 0;
 }
 
 @media (min-width: 768px) {
