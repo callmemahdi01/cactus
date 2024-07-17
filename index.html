@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>cactus</title>
+    <link rel="icon" href="./img/cactus-192x192.png">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./fonts/Vazirmatn-font-face.css">
     <link rel="stylesheet" href="./style.css">
@@ -64,12 +65,13 @@
 
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
+            window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/service-worker.js')
-                    .then(function(registration) {
+                    .then(registration => {
                         console.log('Service Worker registered with scope:', registration.scope);
-                    }).catch(function(error) {
-                        console.log('Service Worker registration failed:', error);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
                     });
             });
         }
