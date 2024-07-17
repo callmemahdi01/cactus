@@ -1,6 +1,6 @@
 {
     "name": "Cactus GPA Calculator",
-    "short_name": "Cactus GPA Calculator",
+    "short_name": "GPA Calculator",
     "description": "An app to calculate GPA and save courses",
     "start_url": "/cactus/index.html",
     "display": "standalone",
