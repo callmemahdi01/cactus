@@ -1,6 +1,3 @@
-alert("شهاده امام حسین ع تسلیت باد")
-
-
 document.addEventListener('DOMContentLoaded', function() {
     loadGrades();
     checkNotificationStatus();
