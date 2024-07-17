@@ -57,6 +57,7 @@ span {
     background-color: #1b972b;
     box-shadow: 0 0 10px black;
     transform: translateY(-2px);
+    transform: translateX(-1px);
 }
 
 ::placeholder{
