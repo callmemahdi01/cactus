@@ -1,0 +1,22 @@
+{
+    "name": "Cactus GPA Calculator",
+    "short_name": "GPA Calculator",
+    "description": "An app to calculate GPA and save courses",
+    "start_url": "/cactus/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#38608e",
+    "icons": [
+      {
+        "src": "/cactus/img/cactus-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/cactus-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
