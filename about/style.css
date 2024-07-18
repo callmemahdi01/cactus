@@ -2,6 +2,7 @@ html {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    font-size: 100%;
 }
 
 body {
@@ -79,6 +80,14 @@ li {
     flex-direction: row;
     justify-content: center;
     font-weight: 700;
+    transition: 200ms;
+}
+
+li:hover {
+    box-shadow: 0 0 10px rgb(204, 204, 204);
+    margin: -5px 1.5rem;
+    font-size: 120%;
+    background-color: #ffeb34;
 }
 
 
