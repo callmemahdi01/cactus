@@ -69,7 +69,7 @@ ul {
     padding: 0;
 }
 
-li {
+li:not(.loading) {
     padding: 5px;
     display: flex;
     background: #FFEB3B;
@@ -83,14 +83,30 @@ li {
     transition: 200ms;
 }
 
-li:hover {
+li:hover:not(.loading) {
     box-shadow: 0 0 10px rgb(204, 204, 204);
     margin: -5px 1.5rem;
     font-size: 120%;
     background-color: #ffeb34;
 }
 
+.loading {
+    padding: 5px;
+    text-align: center;
+    background: #837e57;
+    margin: 5px 2rem;
+    border-radius: 4px;
+    color: #222;
+    font-weight: 700;
+    transition: 200ms;
+}
 
+.loading:hover {
+    box-shadow: 0 0 10px rgb(204, 204, 204);
+    margin: -5px 1.5rem;
+    font-size: 120%;
+    background-color: #aba156;
+}
 header {
     display: flex;
     max-width: 100%;
