@@ -2,6 +2,7 @@ html {
     font-size: 100%;
     font-family: vazirmatn;
     color: white;
+    user-select: none;
 }
 
 body {
