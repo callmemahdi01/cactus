@@ -3,6 +3,7 @@ html {
     flex-direction: column;
     align-items: stretch;
     font-size: 100%;
+    user-select: none;
 }
 
 body {
