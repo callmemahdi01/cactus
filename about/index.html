@@ -1,57 +1,0 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>درباره من 😉</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../fonts/Vazirmatn-font-face.css">
-</head>
-<body>
-    <header>
-        <h1>درباره من</h1>    
-    </header>
-    
-    <div class="container">
-        <p>سلام، من مهدی هستم علاقه مند به برنامه نویسی و همینجور فن پیشرفت ازینجا میتونه تواناییامو ببینی و اگه مایلبه کارتیمی بودی میتونی باهام در ارتباط باشی</p>
-        <h4>توانایی‌هامو در پایین میبینی</h4>
-        <h6 onclick="toggleList('FrontEndList')" style="cursor: pointer;">بزن روشون تا دقیقتر بدونی 😉</h6>
-        <hr>
-        <div class="skills">
-            <div class="skill-category">
-                <h3 onclick="toggleList('pythonList')" style="cursor: pointer;">Python ></h6></h3>
-                <ul id="pythonList" style="display: none;">
-                    <li>Machine Learning</li>
-                    <li>Data Analysis</li>
-                    <li>Image Processing</li>
-                    <li class="loading">deep learning <sub><em>loading ...</em></sub></li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3 onclick="toggleList('FrontEndList')" style="cursor: pointer;">FrontEnd ></h3>
-                <ul id="FrontEndList" style="display: none;">
-                    <li>JavaScript</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li class="loading">React js <sub><em>loading ...</em></sub></li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3 onclick="toggleList('otherSkils')" style="cursor: pointer;">Other Skils ></h3>
-                <ul id="otherSkils" style="display: none;">
-                    <li>Photoshop</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    <footer>
-            <a href="https://www.linkedin.com/in/mahdi-rezaeiii/">لینکدین</a>
-            <a href="https://github.com/callmemahdi01">گیت هاب</a>
-            <a href="mailto:backupmahdi1493@gmail.com">ایمیل</a>
-    </footer>
-
-    <div class="back"><a href="javascript:history.back()">برگشت</a></div>
-    <script src="./script.js"></script>
-</body>
-</html>
