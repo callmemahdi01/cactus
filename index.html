@@ -9,9 +9,10 @@
     <link rel="icon" href="./img/cactus-192x192.png">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./fonts/Vazirmatn-font-face.css">
+    <link id="theme-style" rel="stylesheet" href="./light.css"> <!-- فایل پیش‌فرض -->
     <link rel="stylesheet" href="./style.css">
     <link rel="manifest" href="/cactus/manifest.json">
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSS0RB6CV8"></script>
     <script>
@@ -27,6 +28,19 @@
         <box>
             <h2>Cactus <span>GPA</span> calculator</h2>
         </box>
+        <!-- دکمه تغییر حالت تاریک/روشن -->
+        <div class="toggle-container">
+            <input type="checkbox" id="dark-mode-toggle" class="toggle-input">
+            <label for="dark-mode-toggle" class="toggle-label">
+                <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="5" fill="currentColor"/>
+                    <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+                </svg>
+            </label>
+        </div>
     </header>
     <div class="body">
         <div class="table-container">
@@ -76,8 +90,32 @@
     </footer>
 
     <script src="script.js"></script>
-
     <script>
+        // تغییر حالت تاریک/روشن
+        const toggle = document.getElementById('dark-mode-toggle');
+        const themeStyle = document.getElementById('theme-style');
+
+        // بررسی حالت ذخیره‌شده در localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            toggle.checked = true;
+            themeStyle.href = './dark.css';
+        } else {
+            toggle.checked = false;
+            themeStyle.href = './light.css';
+        }
+
+        // تغییر حالت با کلیک روی دکمه
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                themeStyle.href = './dark.css';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeStyle.href = './light.css';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/service-worker.js')
