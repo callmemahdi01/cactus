@@ -7,10 +7,10 @@
     <meta name="author" content="Mahdi Rezaii">
     <title>Cactus</title>
     <link rel="icon" href="./img/cactus-192x192.png">
-    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style/reset.css">
     <link rel="stylesheet" href="./fonts/Vazirmatn-font-face.css">
-    <link id="theme-style" rel="stylesheet" href="./dark.css"> <!-- فایل پیش‌فرض -->
-    <link rel="stylesheet" href="./bottonStyle.css">
+    <link id="theme-style" rel="stylesheet" href="./style/dark.css"> <!-- فایل پیش‌فرض -->
+    <link rel="stylesheet" href="./style/bottonStyle.css">
     <link rel="manifest" href="/cactus/manifest.json">
 
     <!-- Google Analytics -->
@@ -99,19 +99,19 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             toggle.checked = true;
-            themeStyle.href = './dark.css';
+            themeStyle.href = './style/dark.css';
         } else {
             toggle.checked = false;
-            themeStyle.href = './light.css';
+            themeStyle.href = './style/light.css';
         }
 
         // تغییر حالت با کلیک روی دکمه
         toggle.addEventListener('change', function() {
             if (this.checked) {
-                themeStyle.href = './dark.css';
+                themeStyle.href = './style/dark.css';
                 localStorage.setItem('theme', 'dark');
             } else {
-                themeStyle.href = './light.css';
+                themeStyle.href = './style/light.css';
                 localStorage.setItem('theme', 'light');
             }
         });
