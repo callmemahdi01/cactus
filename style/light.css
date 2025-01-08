@@ -102,10 +102,10 @@ input:focus {
 
 button {
     border-radius: 20px;
-    background-color: #4a90e2;
+    background-color: hsla(212, 72%, 59%, 0.6);
     margin: 10px;
     font-weight: bold;
-    color: #ffffff;
+    color: #000;
     transition: 200ms;
     border: none;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
@@ -129,7 +129,7 @@ button.add {
     display: block;
     width: calc(50% - 1.4rem);
     height: 50px;
-    background-color: #ffdd57;
+    background-color: hsla(48, 100%, 67%, 0.6);
     color: #333;
     margin: 2rem .8rem 0 0;
 }
@@ -155,7 +155,7 @@ button.delete {
 button.calculate {
     width: calc(50% - 1.4rem);
     height: 90px;
-    background-color: #ffdd57;
+    background-color: hsla(48, 100%, 67%, 0.6);
     color: black;
     border: none;
     border-radius: 20px;
@@ -168,7 +168,7 @@ button.calculate:hover {
 }
 
 #gpaResult {
-    background-color: #ffdd57;
+    background-color: hsla(48, 100%, 67%, 0.6);
     color: black;
     border-radius: 20px;
     display: flex;
