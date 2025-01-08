@@ -129,7 +129,7 @@ button.add {
     display: block;
     width: calc(50% - 1.4rem);
     height: 50px;
-    background-color: hsla(48, 100%, 67%, 0.6);
+    background-color: hsla(48, 100%, 67%, 0.7);
     color: #333;
     margin: 2rem .8rem 0 0;
 }
@@ -155,7 +155,7 @@ button.delete {
 button.calculate {
     width: calc(50% - 1.4rem);
     height: 90px;
-    background-color: hsla(48, 100%, 67%, 0.6);
+    background-color: hsla(48, 100%, 67%, 0.7);
     color: black;
     border: none;
     border-radius: 20px;
@@ -168,7 +168,7 @@ button.calculate:hover {
 }
 
 #gpaResult {
-    background-color: hsla(48, 100%, 67%, 0.6);
+    background-color: hsla(48, 100%, 67%, 0.7);
     color: black;
     border-radius: 20px;
     display: flex;
