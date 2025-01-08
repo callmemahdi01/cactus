@@ -151,7 +151,7 @@ button.calculate {
     width: calc(50% - 1.4rem);
     height: 90px;
     background-color: #ff6f61;
-    color: #ffffff;
+    color: black;
     margin-bottom: 8rem;
 }
 
@@ -177,7 +177,7 @@ button.calculate:hover {
 
 #gpaResult {
     background-color: #ff6f61;
-    color: #ffffff;
+    color: black;
     border-radius: 20px;
     display: inline-block;
     margin: 10px;
