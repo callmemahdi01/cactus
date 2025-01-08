@@ -1,132 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang=en dir=rtl>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="نرم افزار محاسبه معدل">
-    <meta name="author" content="Mahdi Rezaii">
-    <title>Cactus</title>
-    <link rel="icon" href="./img/cactus-192x192.png">
-    <link rel="stylesheet" href="./style/reset.css">
-    <link rel="stylesheet" href="./fonts/Vazirmatn-font-face.css">
-    <link id="theme-style" rel="stylesheet" href="./style/dark.css"> <!-- فایل پیش‌فرض -->
-    <link rel="stylesheet" href="./style/bottonStyle.css">
-    <link rel="manifest" href="/cactus/manifest.json">
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSS0RB6CV8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YSS0RB6CV8');
-    </script>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name=description content="نرم افزار محاسبه معدل">
+<meta name=author content="Mahdi Rezaii">
+<title>Cactus</title>
+<link rel=icon href=./img/cactus-192x192.png>
+<link rel=stylesheet href=./style/reset.css>
+<link rel=stylesheet href=./fonts/Vazirmatn-font-face.css>
+<link id=theme-style rel=stylesheet href=./style/dark.css>
+<link rel=stylesheet href=./style/bottonStyle.css>
+<link rel=manifest href=/cactus/manifest.json>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YSS0RB6CV8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-YSS0RB6CV8');</script>
 </head>
 <body>
-    <div class="background"></div>
-    <header>
-        <box>
-            <h2>Cactus <span>GPA</span> calculator</h2>
-        </box>
-        <!-- دکمه تغییر حالت تاریک/روشن -->
-        <div class="toggle-container">
-            <input type="checkbox" id="dark-mode-toggle" class="toggle-input">
-            <label for="dark-mode-toggle" class="toggle-label">
-                <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <circle cx="12" cy="12" r="5" fill="currentColor"/>
-                    <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
-                </svg>
-            </label>
-        </div>
-    </header>
-    <div class="body">
-        <div class="table-container">
-            <table id="gradesTable">
-                <thead>
-                    <tr>
-                        <th class="txt row"></th>
-                        <th class="txt name">نام درس</th>
-                        <th class="txt grade">نمره</th>
-                        <th class="txt unit">واحد</th>
-                        <th class="button_x"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="row">1</td>
-                        <td><input type="text" name="courseName" placeholder="(اختیاری)"></td>
-                        <td><input type="number" name="courseGrade" placeholder="از 20 نمره" max="20" min="0"></td>
-                        <td><input type="number" name="courseUnits" placeholder="مثلا 2 واحد"></td>
-                        <td><button title="حذف" id="button_x" onclick="removeRow(this)">x</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="after_table">
-            <div>
-                <button class="button add" onclick="addRow()">افزودن ردیف</button>
-            </div>
-            <div>
-                <button class="button addRequiredCourses" onclick="addRequiredCourses()">افزودن دروس ضروری علوم پایه</button>
-            </div>
-            <div class="save_delete">
-                <button class="button save" onclick="saveGrades()">ذخیره دروس</button>
-                <button class="button delete" onclick="clearCache()">حذف دروس</button>
-            </div>
-            <div class="cal_resualt">
-                <box id="gpaResult">* RESUALT:</box>
-                <button class="button calculate" onclick="calculateGPA()">محاسبه معدل</button>
-            </div>
-        </div>
-    </div>
-    <div id="successMessage" class="show-message">دروس با موفقیت ذخیره شدند</div>
-    <button id="scrollToTopBtn" onclick="scrollToTop()">بازگشت به ابتدای صفحه</button>
-    <footer>
-        <box class="paraph">Hello, wellcome to cactus family! <br><hr></box>
-        <a class="links" href="https://callmemahdi01.github.io/about/">درباره من</a>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-        // تغییر حالت تاریک/روشن
-        const toggle = document.getElementById('dark-mode-toggle');
-        const themeStyle = document.getElementById('theme-style');
-
-        // بررسی حالت ذخیره‌شده در localStorage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            toggle.checked = true;
-            themeStyle.href = './style/dark.css';
-        } else {
-            toggle.checked = false;
-            themeStyle.href = './style/light.css';
-        }
-
-        // تغییر حالت با کلیک روی دکمه
-        toggle.addEventListener('change', function() {
-            if (this.checked) {
-                themeStyle.href = './style/dark.css';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeStyle.href = './style/light.css';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.error('Service Worker registration failed:', error);
-                    });
-            });
-        }
-    </script>
+<div class=background></div>
+<header>
+<box>
+<h2>Cactus <span>GPA</span> calculator</h2>
+</box>
+<div class=toggle-container>
+<input type=checkbox id=dark-mode-toggle class=toggle-input>
+<label for=dark-mode-toggle class=toggle-label>
+<svg class=sun xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" width=24 height=24>
+<circle cx=12 cy=12 r=5 fill="currentColor"/>
+<path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42" stroke=currentColor stroke-width=2 stroke-linecap="round"/>
+</svg>
+<svg class=moon xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" width=24 height=24>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+</svg>
+</label>
+</div>
+</header>
+<div class=body>
+<div class=table-container>
+<table id=gradesTable>
+<thead>
+<tr>
+<th class="txt row"></th>
+<th class="txt name">نام درس</th>
+<th class="txt grade">نمره</th>
+<th class="txt unit">واحد</th>
+<th class=button_x></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class=row>1</td>
+<td><input type=text name=courseName placeholder=(اختیاری)></td>
+<td><input type=number name=courseGrade placeholder="از 20 نمره" max=20 min=0></td>
+<td><input type=number name=courseUnits placeholder="مثلا 2 واحد"></td>
+<td><button title=حذف id=button_x onclick=removeRow(this)>x</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=after_table>
+<div>
+<button class="button add" onclick=addRow()>افزودن ردیف</button>
+</div>
+<div>
+<button class="button addRequiredCourses" onclick=addRequiredCourses()>افزودن دروس ضروری علوم پایه</button>
+</div>
+<div class=save_delete>
+<button class="button save" onclick=saveGrades()>ذخیره دروس</button>
+<button class="button delete" onclick=clearCache()>حذف دروس</button>
+</div>
+<div class=cal_resualt>
+<box id=gpaResult>* RESUALT:</box>
+<button class="button calculate" onclick=calculateGPA()>محاسبه معدل</button>
+</div>
+</div>
+</div>
+<div id=successMessage class=show-message>دروس با موفقیت ذخیره شدند</div>
+<button id=scrollToTopBtn onclick=scrollToTop()>بازگشت به ابتدای صفحه</button>
+<footer>
+<box class=paraph>Hello, wellcome to cactus family! <br><hr></box>
+<a class=links href=https://callmemahdi01.github.io/about/>درباره من</a>
+</footer>
+<script src=script.js></script>
+<script>const toggle=document.getElementById('dark-mode-toggle');const themeStyle=document.getElementById('theme-style');const savedTheme=localStorage.getItem('theme');if(savedTheme==='dark'){toggle.checked=true;themeStyle.href='./style/dark.css';}else{toggle.checked=false;themeStyle.href='./style/light.css';}
+toggle.addEventListener('change',function(){if(this.checked){themeStyle.href='./style/dark.css';localStorage.setItem('theme','dark');}else{themeStyle.href='./style/light.css';localStorage.setItem('theme','light');}});if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(registration=>{console.log('Service Worker registered with scope:',registration.scope);}).catch(error=>{console.error('Service Worker registration failed:',error);});});}</script>
 </body>
 </html>
