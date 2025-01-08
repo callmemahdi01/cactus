@@ -206,15 +206,15 @@ button.calculate:hover {
 }
 
 .txt.name {
-    width: 37%;
+    width: 45%;
 }
 
 .txt.grade {
-    width: 40%;
+    width: 23%;
 }
 
 .txt.unit {
-    width: 15%;
+    width: 23%;
 }
 
 .txt.button_x {
@@ -222,7 +222,7 @@ button.calculate:hover {
 }
 
 .txt.row {
-    width: 2%;
+    width: 3%;
 }
 
 .show-message {

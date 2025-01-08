@@ -156,8 +156,8 @@ button.delete {
 button.calculate {
     width: calc(50% - 1.4rem);
     height: 90px;
-    background-color: #ffd900d9;
-    color: black;
+    background-color: #ff382eb3;
+    color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -169,8 +169,8 @@ button.calculate:hover {
 }
 
 #gpaResult {
-    background-color: #ffd900d9;
-    color: black;
+    background-color: #ff382eb3;
+    color: white;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -210,15 +210,15 @@ button.calculate:hover {
 }
 
 .txt.name {
-    width: 37%;
+    width: 45%;
 }
 
 .txt.grade {
-    width: 40%;
+    width: 23%;
 }
 
 .txt.unit {
-    width: 15%;
+    width: 23%;
 }
 
 .txt.button_x {
@@ -226,7 +226,7 @@ button.calculate:hover {
 }
 
 .txt.row {
-    width: 2%;
+    width: 3%;
 }
 
 .show-message {
