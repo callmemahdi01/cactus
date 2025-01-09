@@ -1,0 +1,86 @@
+.toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #6baaf2;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+}
+
+.toggle-label .sun,
+.toggle-label .moon {
+    color: gold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.toggle-label .sun {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.toggle-label .moon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.toggle-input:checked + .toggle-label {
+    background-color: #333;
+}
+
+.toggle-input:checked + .toggle-label .sun {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.toggle-input:checked + .toggle-label .moon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.typing-container {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    font-family: monospace;
+    margin-top: 0;
+    padding: 2px;
+    font-weight: bold;
+    text-decoration: none;
+    unicode-bidi: plaintext;
+    text-align: center;
+}
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: currentColor;
+    vertical-align: text-bottom;
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.typing-container a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}

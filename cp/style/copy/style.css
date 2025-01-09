@@ -1,20 +1,13 @@
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html {
     font-size: 100%;
-    font-family: 'Vazirmatn', sans-serif;
-    color: #e0e0e0;
+    font-family: vazirmatn;
+    color: white;
     user-select: none;
 }
 
 body {
-    background-color: #121212;
-    opacity: 0.9;
+    background-color: #dedede;
+    opacity: .9;
 }
 
 .background {
@@ -23,61 +16,64 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /* background-image: url("./img/cactus-512x512.png"); */
+    background-image: url("./img/cactus-512x512.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    filter: blur(.5rem) brightness(0.6);
+    background-size: 100% auto;
+    filter: blur(.5rem);
     z-index: -1;
 }
 
 header {
     position: relative;
-    background-color: #1f1f1f;
-    margin: 10px auto;
+    background-color: #38608e;
+    margin: 10px auto 10px auto;
     width: calc(100% - 1rem);
     height: 5rem;
     color: #ffffff;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px black;
+
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* وسط‌چین کردن افقی */
+    align-items: center; /*وسط‌چین کردن عمودی*/
 }
 
 span {
-    color: #ff6f61;
+    color: #5eff00;
 }
 
 .links {
     border-radius: 5px;
-    color: #ffffff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    color: #d3d3d3;
+    box-shadow: 0 0 5px black;
     padding: 10px;
-    background-color: #ff6f61;
+    background-color: #54952e;
     transition: 200ms;
-    text-decoration: none;
 }
 
 .links:hover {
-    background-color: #ff3b2f;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #1b972b;
+    box-shadow: 0 0 10px black;
     transform: translateY(-2px);
+    transform: translateX(-1px);
 }
 
-::placeholder {
+::placeholder{
     font-weight: 300;
-    color: #888;
+    color: rgb(255, 115, 115);
 }
 
 table {
-    background-color: #1f1f1f;
+    background-color: #38608e;
     border-radius: 20px;
     margin: 1rem .7rem 10px 10px;
     width: calc(100% - 1.4rem);
-    color: #e0e0e0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 10px black;
+    text-shadow: 0 0 5px black;
     padding: 1rem 0px;
 }
 
@@ -86,36 +82,36 @@ input {
     width: 100%;
     height: 40px;
     text-align: center;
-    font-size: 14px;
-    background-color: #2d2d2d;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 10px;
+    background-color: #dff1ff;
+    box-shadow: 0 0 10px black;
     transition: 200ms;
-    font-weight: 500;
-    border: 1px solid #444;
-    color: #e0e0e0;
+    font-weight: 800;
+    font-size: small;
 }
 
 input:focus {
-    background-color: #3d3d3d;
-    border: 1px solid #ff6f61;
+    background-color: rgb(255, 219, 219);
+    border: none;
     transform: translateY(-2px);
 }
 
+
 button {
     border-radius: 20px;
-    background-color: #444;
+    color: 0a21c0;
+    background-color: #38608e;
     margin: 10px;
     font-weight: bold;
     color: #ffffff;
     transition: 200ms;
     border: none;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+    box-shadow: 0px 0px 5px #000000;
 }
 
-button:hover {
-    background-color: #ff3b2f;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+.button:hover {
+    background-color: #2e5581;
+    box-shadow: 0px 0px 5px #000000;
     transform: translateY(-2px);
 }
 
@@ -126,17 +122,17 @@ button.addRequiredCourses {
     height: 50px;
 }
 
-button.add {
+button.add{
     display: block;
     width: calc(50% - 1.4rem);
     height: 50px;
-    background-color: #ffd900d9;
-    color: black;
+    background-color: #a3cae9;
+    color: rgb(0, 0, 0);
     margin: 2rem .8rem 0 0;
 }
 
 button.add:hover {
-    background-color: #ff3b2f;
+    background-color: #8ab5d8;
 }
 
 button.save,
@@ -146,88 +142,67 @@ button.delete {
     height: 50px;
 }
 
-.cal_resualt {
-    display: flex;
-    justify-content: space-between; /* یا center یا flex-start */
-    align-items: center;
-    gap: 10px; /* فاصله بین دکمه و باکس */
-}
-
-button.calculate {
+button.calculate{
+    display: inline;
     width: calc(50% - 1.4rem);
     height: 90px;
-    background-color: #ff382eb3;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+    background-color: #a3cae9;
+    color: rgb(0, 0, 0);
     margin-bottom: 8rem;
 }
 
 button.calculate:hover {
-    background-color: #ff3b2f;
-}
-
-#gpaResult {
-    background-color: #ff382eb3;
-    color: white;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    width: calc(50% - 1.4rem);
-    height: 90px;
-    position: relative;
-    text-align: left;
-    font-weight: bold;
-    direction: ltr;
-    margin-bottom: 8rem;
-    font-size: 1.5rem;
-    transition: 200ms;
-}
-
-#gpaResult:hover {
-    background-color: #ff3b2f;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    transform: translateY(-2px);
+    background-color: #8ab5d8;
 }
 
 #button_x {
     padding: 2.5px 5px;
     margin: 5px;
-    background-color: #ff3b2f;
-    color: #ffffff;
+    background-color: #ff6c6c;
+    color: rgb(243, 243, 243);
     border: none;
     cursor: pointer;
     border-radius: 100px;
     transition: 200ms;
 }
 
-#button_x:hover {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+#button_x:hover{
+    box-shadow: 0px 0px 5px black;
     transform: translateY(-2px);
 }
 
+
+#gpaResult {
+    background-color: #a3cae9;
+    color: black;
+    border-radius: 20px;
+    display:inline-block;
+    margin: 10px;
+    width: calc(50% - 1.4rem);
+    height: 90px;
+    position: relative;
+    top: -34px;
+    text-align: left;
+    font-weight: bold;
+    direction: ltr;
+}
+
 .txt.name {
-    width: 45%;
+    width: 37%;
 }
-
 .txt.grade {
-    width: 23%;
+    width: 40%;
 }
-
 .txt.unit {
-    width: 23%;
+    width: 15%;
 }
-
 .txt.button_x {
     width: 5%;
 }
-
 .txt.row {
-    width: 3%;
+    width: 2%;
 }
+
 
 .show-message {
     position: fixed;
@@ -235,31 +210,33 @@ button.calculate:hover {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    background-color: #ff6f61;
-    color: #ffffff;
+    background-color: #d3d3d3;
+    color: #333;
     border-radius: 10px;
     width: 250px;
     padding: 10px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
-    font-family: 'Vazirmatn', sans-serif;
+    box-shadow: 0px 0px 15px 5px #333;
+    font-family: vazirmatn, Arial, sans-serif;
     font-weight: bold;
 }
 
 .show-message.show {
+    position: fixed;
     opacity: 0.9;
 }
 
+
 footer {
-    background-color: #1f1f1f;
+    background-color: #549131;
     color: #ffffff;
     border-radius: 10px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px black;
     margin-top: 1rem;
     padding: .5rem 0;
 }
@@ -269,7 +246,6 @@ footer {
         width: 60%;
         margin: 0 auto;
     }
-
     table {
         width: 60%;
         margin: 1rem 20%;
@@ -279,48 +255,44 @@ footer {
         width: 30%;
         margin: 2rem 20% 1rem 1rem;
     }
-
     button.addRequiredCourses {
         width: 60%;
         margin: 1rem 20%;
     }
-
     .save_delete {
         width: 62%;
         margin: 0px 19%;
     }
-
     .cal_resualt {
         width: 62%;
         margin: 0px 19%;
     }
-
     footer {
         width: 60%;
         margin: 0rem 20%;
     }
-
     .background {
         background-size: auto auto;
     }
+        
 }
 
 #scrollToTopBtn {
     position: sticky;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    background-color: #ff6f61;
+    bottom: 20px; /* فاصله از پایین */
+    right: 20px; /* فاصله از راست */
+    display: none; /* مخفی به طور پیش فرض */
+    background-color: #38608e;
     color: white;
     border: none;
     border-radius: 50px;
     padding: 6px 10px;
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px 5px #333;
     cursor: pointer;
     z-index: 1000;
     font-size: small;
 }
 
 #scrollToTopBtn.show {
-    display: block;
+    display: block; /* نمایش زمانی که لازم است */
 }
