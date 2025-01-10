@@ -2,7 +2,6 @@ const CACHE_NAME = 'gpa-calculator-cache-v1.2';
 const urlsToCache = [
   '/cactus/',
   '/cactus/index.html',
-  '/cactus/offline.html',
   '/cactus/style/styles.css',
   '/cactus/style/light.css',
   '/cactus/style/dark.css',
@@ -25,23 +24,21 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Return cached response if found
+        // Return cached version if we have it
         if (response) {
           return response;
         }
 
-        // Otherwise try to fetch from network
+        // Otherwise try network
         return fetch(event.request)
           .then(networkResponse => {
-            // Check if we received a valid response
+            // Check if valid response
             if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
               return networkResponse;
             }
 
-            // Clone the response
+            // Cache new responses for later
             const responseToCache = networkResponse.clone();
-
-            // Add it to cache for later
             caches.open(CACHE_NAME)
               .then(cache => {
                 cache.put(event.request, responseToCache);
@@ -50,8 +47,8 @@ self.addEventListener('fetch', event => {
             return networkResponse;
           })
           .catch(() => {
-            // If both cache and network fail, try to return a fallback page
-            return caches.match('/cactus/offline.html');
+            // If network fails, return from cache if available
+            return caches.match(event.request);
           });
       })
   );
