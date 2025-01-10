@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang=fa dir=rtl>
+
 <head>
     <meta charset=UTF-8>
     <meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -12,7 +13,7 @@
     <link rel=stylesheet href=./style/styles.css>
     <link id=theme-style rel=stylesheet href=./style/dark.css>
     <link rel=manifest href=/cactus/manifest.json>
-    
+
     <!-- Optimize resource loading -->
     <link rel=preload href=./fonts/Vazirmatn-font-face.css as=style>
     <link rel=preload href=./style/styles.css as=style>
@@ -36,7 +37,8 @@
             <label for=dark-mode-toggle class=toggle-label>
                 <svg class=sun xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" width=24 height=24>
                     <circle cx=12 cy=12 r=5 fill="currentColor" />
-                    <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42"
+                    <path
+                        d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42"
                         stroke=currentColor stroke-width=2 stroke-linecap="round" />
                 </svg>
                 <svg class=moon xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" width=24 height=24>
@@ -74,7 +76,8 @@
                 <button class="button add" onclick=addRow()>افزودن ردیف</button>
             </div>
             <div>
-                <button class="button addRequiredCourses" onclick=addRequiredCourses()>افزودن دروس ضروری علوم پایه</button>
+                <button class="button addRequiredCourses" onclick=addRequiredCourses()>افزودن دروس ضروری علوم
+                    پایه</button>
             </div>
             <div class=save_delete>
                 <button class="button save" onclick=saveGrades()>ذخیره دروس</button>
@@ -92,12 +95,16 @@
 
     <!-- Defer non-critical scripts -->
     <script src=script.js defer></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSS0RB6CV8"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SRG1YJXKV"></script>
     <script>
-        window.dataLayer = window.dataLayer || []; 
+        window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date()); 
-        gtag('config', 'G-YSS0RB6CV8');
+        gtag('js', new Date());
+
+        gtag('config', 'G-2SRG1YJXKV');
     </script>
 </body>
+
 </html>
