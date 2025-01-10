@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en dir=rtl>
+<html lang=fa dir=rtl>
 <head>
     <meta charset=UTF-8>
     <meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -12,6 +12,11 @@
     <link rel=stylesheet href=./style/styles.css>
     <link id=theme-style rel=stylesheet href=./style/dark.css>
     <link rel=manifest href=/cactus/manifest.json>
+    
+    <!-- Optimize resource loading -->
+    <link rel=preload href=./fonts/Vazirmatn-font-face.css as=style>
+    <link rel=preload href=./style/styles.css as=style>
+    <link rel=preload href=./script.js as=script>
 </head>
 
 <body>
@@ -85,7 +90,8 @@
     <div id=successMessage class=show-message>دروس با موفقیت ذخیره شدند</div>
     <button id=scrollToTopBtn onclick=scrollToTop()>بازگشت به ابتدای صفحه</button>
 
-    <script src=script.js></script>
+    <!-- Defer non-critical scripts -->
+    <script src=script.js defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSS0RB6CV8"></script>
     <script>
         window.dataLayer = window.dataLayer || []; 

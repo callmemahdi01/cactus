@@ -1,10 +1,12 @@
-const CACHE_NAME = 'gpa-calculator-cache-v1.1';
+const CACHE_NAME = 'gpa-calculator-cache-v1.2';
 const urlsToCache = [
   '/cactus/',
   '/cactus/index.html',
-  '/cactus/style.css',
+  '/cactus/style/styles.css',
+  '/cactus/style/light.css',
+  '/cactus/style/dark.css',
+  '/cactus/style/reset.css',
   '/cactus/script.js',
-  '/cactus/reset.css',
   '/cactus/fonts/Vazirmatn-font-face.css',
   '/cactus/img/cactus-512x512.png',
   '/cactus/img/cactus-192x192.png'
@@ -20,23 +22,34 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    fetch(event.request)
+    caches.match(event.request)
       .then(response => {
-        // اگر پاسخ معتبر باشد، آن را در کش ذخیره می‌کنیم
-        if (!response || response.status !== 200 || response.type !== 'basic') {
+        // Return cached version if we have it
+        if (response) {
           return response;
         }
 
-        const responseToCache = response.clone();
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, responseToCache);
-        });
+        // Otherwise try network
+        return fetch(event.request)
+          .then(networkResponse => {
+            // Check if valid response
+            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+              return networkResponse;
+            }
 
-        return response;
-      })
-      .catch(() => {
-        // اگر اتصال به اینترنت وجود نداشته باشد، از کش استفاده می‌کنیم
-        return caches.match(event.request);
+            // Cache new responses for later
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME)
+              .then(cache => {
+                cache.put(event.request, responseToCache);
+              });
+
+            return networkResponse;
+          })
+          .catch(() => {
+            // If network fails, return from cache if available
+            return caches.match(event.request);
+          });
       })
   );
 });

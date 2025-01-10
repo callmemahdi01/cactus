@@ -1,66 +1,41 @@
-const CACHE_NAME = 'gpa-calculator-cache-v1.2';
+const CACHE_NAME = 'gpa-calculator-cache-v1.3';
 const urlsToCache = [
-  '/cactus/',
-  '/cactus/index.html',
-  '/cactus/style/styles.css',
-  '/cactus/style/light.css',
-  '/cactus/style/dark.css',
-  '/cactus/style/reset.css',
-  '/cactus/script.js',
-  '/cactus/fonts/Vazirmatn-font-face.css',
-  '/cactus/img/cactus-512x512.png',
-  '/cactus/img/cactus-192x192.png'
-];
+    '/cactus/',
+    '/cactus/index.html',
+    '/cactus/style/styles.css',
+    '/cactus/style/light.css',
+    '/cactus/style/dark.css',
+    '/cactus/script.js'
+].map(url => new Request(url, {credentials: 'same-origin'}));
+
+// Optimize cache handling
+async function cacheFirst(request) {
+    const cachedResponse = await caches.match(request);
+    return cachedResponse || networkFirst(request);
+}
+
+async function networkFirst(request) {
+    try {
+        const response = await fetch(request);
+        if (response && response.status === 200 && response.type === 'basic') {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(request, response.clone());
+        }
+        return response;
+    } catch (error) {
+        return caches.match(request);
+    }
+}
 
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
-  );
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(urlsToCache))
+    );
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Return cached version if we have it
-        if (response) {
-          return response;
-        }
-
-        // Otherwise try network
-        return fetch(event.request)
-          .then(networkResponse => {
-            // Check if valid response
-            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-              return networkResponse;
-            }
-
-            // Cache new responses for later
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return networkResponse;
-          })
-          .catch(() => {
-            // If network fails, return from cache if available
-            return caches.match(event.request);
-          });
-      })
-  );
-});
-
-// حذف کش‌ها در زمان آنلاین شدن
-self.addEventListener('online', () => {
-  caches.keys().then(cacheNames => {
-    cacheNames.forEach(cacheName => {
-      caches.delete(cacheName); // حذف تمام کش‌ها
-    });
-  });
+    event.respondWith(cacheFirst(event.request));
 });
 
 self.addEventListener('activate', event => {

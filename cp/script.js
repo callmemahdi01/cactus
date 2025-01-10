@@ -173,9 +173,9 @@ toggle.addEventListener('change', function () {
 
 const messages = [
     'Hello, welcom to GeekMind family!',
-    'Touch me to more info 🙋🏻',
+    'برای اطلاعات بیشتر این جمله رو لمس کن',
     'به گیک‌‌ مایند خوش اومدی!',
-    'برای اطلاعات بیشتر این جمله رو لمس کن'
+    'Touch me to more info 🙋🏻'
 ];
 
 const TYPING_SPEED = 100;

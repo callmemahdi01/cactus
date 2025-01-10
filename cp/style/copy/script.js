@@ -1,24 +1,18 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     loadGrades();
     checkNotificationStatus();
-    type(); // Start typing animation
 });
 
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/cactus/service-worker.js')
-            .then(function (registration) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/GPA/service-worker.js')
+            .then(function(registration) {
                 console.log('Service Worker registered with scope:', registration.scope);
-            }).catch(function (error) {
+            }).catch(function(error) {
                 console.log('Service Worker registration failed:', error);
             });
     });
 }
-
-const gradesTable = document.getElementById('gradesTable').getElementsByTagName('tbody')[0];
-const gpaResult = document.getElementById('gpaResult');
-const successMessage = document.getElementById('successMessage');
-const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
 function addRow() {
     const table = document.getElementById('gradesTable').getElementsByTagName('tbody')[0];
@@ -42,20 +36,21 @@ function removeRow(button) {
 }
 
 function calculateGPA() {
-    const rows = gradesTable.getElementsByTagName('tr');
-    const totals = Array.from(rows).reduce((acc, row) => {
-        const [grade, units] = [
-            parseFloat(row.getElementsByTagName('input')[1].value),
-            parseFloat(row.getElementsByTagName('input')[2].value)
-        ];
-        if (!isNaN(grade) && !isNaN(units)) {
-            acc.units += units;
-            acc.points += units * grade;
-        }
-        return acc;
-    }, { units: 0, points: 0 });
+    const rows = document.getElementById('gradesTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    let totalUnits = 0;
+    let totalPoints = 0;
 
-    gpaResult.innerText = (totals.points / totals.units || 0).toFixed(2);
+    Array.from(rows).forEach(row => {
+        const grade = parseFloat(row.getElementsByTagName('input')[1].value);
+        const units = parseFloat(row.getElementsByTagName('input')[2].value);
+        if (!isNaN(units) && !isNaN(grade)) {
+            totalUnits += units;
+            totalPoints += units * grade;
+        }
+    });
+
+    const gpa = totalPoints / totalUnits;
+    document.getElementById('gpaResult').innerText = `* RESUALT:\n\t${gpa.toFixed(2)}`;
 }
 
 function saveGrades() {
@@ -130,7 +125,17 @@ function showSuccessMessage() {
     }, 2000);
 }
 
-window.addEventListener('scroll', function () {
+
+
+function showSuccessMessage() {
+    const successMessage = document.getElementById('successMessage');
+    successMessage.classList.add('show');
+    setTimeout(() => {
+        successMessage.classList.remove('show');
+    }, 2000);
+}
+
+window.addEventListener('scroll', function() {
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     if (document.documentElement.scrollTop > 200) {
         scrollToTopBtn.classList.add('show');
@@ -145,84 +150,3 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
-
-const toggle = document.getElementById('dark-mode-toggle');
-const themeStyle = document.getElementById('theme-style');
-const savedTheme = localStorage.getItem('theme');
-
-if (savedTheme === 'light') {
-    toggle.checked = false;
-    themeStyle.href = './style/light.css';
-} else {
-    toggle.checked = true;
-    themeStyle.href = './style/dark.css';
-}
-
-toggle.addEventListener('change', function () {
-    if (this.checked) {
-        themeStyle.href = './style/dark.css';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        themeStyle.href = './style/light.css';
-        localStorage.setItem('theme', 'light');
-    }
-});
-
-const messages = [
-    'Hello, welcom to GeekMind family!',
-    'برای اطلاعات بیشتر این جمله رو لمس کن',
-    'به گیک‌‌ مایند خوش اومدی!',
-    'Touch me to more info 🙋🏻'
-];
-
-const TYPING_SPEED = 100;
-const DELETING_SPEED = 50;
-const PAUSE_TIME = 3000;
-const PAUSE_BETWEEN_MESSAGES = 1000;
-
-let textElement = document.getElementById('text');
-let messageIndex = 0;
-let isDeleting = false;
-let text = '';
-let charIndex = 0;
-
-function type() {
-    const currentMessage = messages[messageIndex];
-
-    if (isDeleting) {
-        text = currentMessage.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        text = currentMessage.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    textElement.textContent = text;
-
-    let typeSpeed = isDeleting ? DELETING_SPEED : TYPING_SPEED;
-
-    if (!isDeleting && charIndex === currentMessage.length) {
-        typeSpeed = PAUSE_TIME;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        messageIndex = (messageIndex + 1) % messages.length;
-        typeSpeed = PAUSE_BETWEEN_MESSAGES;
-    }
-
-    setTimeout(type, typeSpeed);
-}
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/cactus/service-worker.js').then(registration => {
-            console.log('Service Worker registered with scope:', registration.scope);
-        }).catch(error => {
-            console.error('Service Worker registration failed:', error);
-        });
-    });
-}
-
-window.onload = function () {
-    type();
-};
