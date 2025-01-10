@@ -130,7 +130,7 @@ button.add {
     display: block;
     width: calc(50% - 1.4rem);
     height: 50px;
-    background-color: gold;
+    background-color: #ffd900d9;
     color: black;
     margin: 2rem .8rem 0 0;
 }
@@ -146,17 +146,51 @@ button.delete {
     height: 50px;
 }
 
+.cal_resualt {
+    display: flex;
+    justify-content: space-between; /* یا center یا flex-start */
+    align-items: center;
+    gap: 10px; /* فاصله بین دکمه و باکس */
+}
+
 button.calculate {
-    display: inline;
     width: calc(50% - 1.4rem);
     height: 90px;
-    background-color: #ff6f61;
-    color: black;
+    background-color: #ff382eb3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
     margin-bottom: 8rem;
 }
 
 button.calculate:hover {
     background-color: #ff3b2f;
+}
+
+#gpaResult {
+    background-color: #ff382eb3;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: calc(50% - 1.4rem);
+    height: 90px;
+    position: relative;
+    text-align: left;
+    font-weight: bold;
+    direction: ltr;
+    margin-bottom: 8rem;
+    font-size: 1.5rem;
+    transition: 200ms;
+}
+
+#gpaResult:hover {
+    background-color: #ff3b2f;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
 }
 
 #button_x {
@@ -175,31 +209,16 @@ button.calculate:hover {
     transform: translateY(-2px);
 }
 
-#gpaResult {
-    background-color: #ff6f61;
-    color: black;
-    border-radius: 20px;
-    display: inline-block;
-    margin: 10px;
-    width: calc(50% - 1.4rem);
-    height: 90px;
-    position: relative;
-    top: -34px;
-    text-align: left;
-    font-weight: bold;
-    direction: ltr;
-}
-
 .txt.name {
-    width: 37%;
+    width: 45%;
 }
 
 .txt.grade {
-    width: 40%;
+    width: 23%;
 }
 
 .txt.unit {
-    width: 15%;
+    width: 23%;
 }
 
 .txt.button_x {
@@ -207,7 +226,7 @@ button.calculate:hover {
 }
 
 .txt.row {
-    width: 2%;
+    width: 3%;
 }
 
 .show-message {

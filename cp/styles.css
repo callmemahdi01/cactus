@@ -55,3 +55,32 @@
     opacity: 1;
     transform: translate(-50%, -50%) rotate(0deg);
 }
+
+.typing-container {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    font-family: monospace;
+    margin-top: 0;
+    padding: 2px;
+    font-weight: bold;
+    text-decoration: none;
+    unicode-bidi: plaintext;
+    text-align: center;
+}
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: currentColor;
+    vertical-align: text-bottom;
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.typing-container a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}

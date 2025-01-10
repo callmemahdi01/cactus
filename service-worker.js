@@ -1,10 +1,13 @@
-const CACHE_NAME = 'gpa-calculator-cache-v1.1';
+const CACHE_NAME = 'gpa-calculator-cache-v1.2';
 const urlsToCache = [
   '/cactus/',
   '/cactus/index.html',
-  '/cactus/style.css',
+  '/cactus/offline.html',
+  '/cactus/style/styles.css',
+  '/cactus/style/light.css',
+  '/cactus/style/dark.css',
+  '/cactus/style/reset.css',
   '/cactus/script.js',
-  '/cactus/reset.css',
   '/cactus/fonts/Vazirmatn-font-face.css',
   '/cactus/img/cactus-512x512.png',
   '/cactus/img/cactus-192x192.png'
@@ -20,23 +23,36 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    fetch(event.request)
+    caches.match(event.request)
       .then(response => {
-        // اگر پاسخ معتبر باشد، آن را در کش ذخیره می‌کنیم
-        if (!response || response.status !== 200 || response.type !== 'basic') {
+        // Return cached response if found
+        if (response) {
           return response;
         }
 
-        const responseToCache = response.clone();
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, responseToCache);
-        });
+        // Otherwise try to fetch from network
+        return fetch(event.request)
+          .then(networkResponse => {
+            // Check if we received a valid response
+            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+              return networkResponse;
+            }
 
-        return response;
-      })
-      .catch(() => {
-        // اگر اتصال به اینترنت وجود نداشته باشد، از کش استفاده می‌کنیم
-        return caches.match(event.request);
+            // Clone the response
+            const responseToCache = networkResponse.clone();
+
+            // Add it to cache for later
+            caches.open(CACHE_NAME)
+              .then(cache => {
+                cache.put(event.request, responseToCache);
+              });
+
+            return networkResponse;
+          })
+          .catch(() => {
+            // If both cache and network fail, try to return a fallback page
+            return caches.match('/cactus/offline.html');
+          });
       })
   );
 });

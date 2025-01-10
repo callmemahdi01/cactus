@@ -125,8 +125,6 @@ function showSuccessMessage() {
     }, 2000);
 }
 
-
-
 function showSuccessMessage() {
     const successMessage = document.getElementById('successMessage');
     successMessage.classList.add('show');
@@ -176,14 +174,14 @@ toggle.addEventListener('change', function () {
 const messages = [
     'Hello, welcom to GeekMind family!',
     'Touch me to more info 🙋🏻',
-    'به گیک‌‌ مایند خوش اومدی',
+    'به گیک‌‌ مایند خوش اومدی!',
     'برای اطلاعات بیشتر این جمله رو لمس کن'
 ];
 
 const TYPING_SPEED = 100;
 const DELETING_SPEED = 50;
-const PAUSE_TIME = 2000;
-const PAUSE_BETWEEN_MESSAGES = 3000;
+const PAUSE_TIME = 3000;
+const PAUSE_BETWEEN_MESSAGES = 1000;
 
 let textElement = document.getElementById('text');
 let messageIndex = 0;
