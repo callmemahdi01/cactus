@@ -1,4 +1,4 @@
-8<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang=fa dir=rtl>
 
 <head>
@@ -138,48 +138,31 @@
     <button id=scrollToTopBtn onclick=scrollToTop()>بازگشت به ابتدای صفحه</button>
 
     <script>
-    // تشخیص دقیق‌تر مرورگر تلگرام
-    function isTelegramBrowser() {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        
-        // بررسی برای تمام نسخه‌های مرورگر تلگرام (Android, iOS, Desktop)
-        const isTelegram = /Telegram|WebView|TelegramBot/i.test(userAgent) && 
-                         !/Chrome|Safari|Firefox|Edge|Opera|IE/i.test(userAgent);
-        
-        // تشخیص از طریق پروتکل تلگرام
-        const isTgProtocol = window.location.href.startsWith('tg://');
-        
-        return isTelegram || isTgProtocol;
-    }
-
-    function showModal() {
-        const modal = document.getElementById('telegramModal');
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('telegramModal');
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    // اجرای کد پس از لود کامل DOM
-    document.addEventListener('DOMContentLoaded', function() {
-        if(isTelegramBrowser()) {
-            showModal();
-            // ریدایرکت به مرورگر خارجی پس از 5 ثانیه
-            setTimeout(() => {
-                window.location.href = 'https://Callmemahdi01.github.io/cactus';
-            }, 5000);
+        // تشخیص مرورگر تلگرام و نمایش مدال
+        function isTelegramBrowser() {
+            return navigator.userAgent.includes('Telegram');
         }
-    });
 
-    // بستن مدال با کلیک خارج از محتوا
-    document.getElementById('telegramModal').addEventListener('click', function(e) {
-        if(e.target === this) closeModal();
-    });
-</script>
+        function showModal() {
+            document.getElementById('telegramModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('telegramModal').style.display = 'none';
+        }
+
+        // بستن مدال با کلیک خارج از محتوا
+        document.getElementById('telegramModal').addEventListener('click', function(e) {
+            if(e.target === this) closeModal();
+        });
+
+        // بررسی هنگام لود صفحه
+        document.addEventListener('DOMContentLoaded', function() {
+            if(isTelegramBrowser()) {
+                showModal();
+            }
+        });
+    </script>
 
     <!-- Defer non-critical scripts -->
     <script src=script.js defer></script>
