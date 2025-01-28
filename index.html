@@ -18,9 +18,53 @@
     <link rel=preload href=./fonts/Vazirmatn-font-face.css as=style>
     <link rel=preload href=./style/styles.css as=style>
     <link rel=preload href=./script.js as=script>
+    
+    <style>
+        /* استایل مدال */
+        .telegram-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 90%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- مدال هشدار -->
+    <div id="telegramModal" class="telegram-modal">
+        <div class="modal-content">
+            <h3>⚠️ توجه!</h3>
+            <p>برای تجربه بهتر، لطفاً برنامه را در مرورگر پیشفرض دستگاه خود باز کنید.</p>
+            <button onclick="closeModal()" class="modal-close">متوجه شدم</button>
+        </div>
+    </div>
+
     <div class=background></div>
     <header>
         <box>
@@ -92,6 +136,33 @@
 
     <div id=successMessage class=show-message>دروس با موفقیت ذخیره شدند</div>
     <button id=scrollToTopBtn onclick=scrollToTop()>بازگشت به ابتدای صفحه</button>
+
+    <script>
+        // تشخیص مرورگر تلگرام و نمایش مدال
+        function isTelegramBrowser() {
+            return navigator.userAgent.includes('Telegram');
+        }
+
+        function showModal() {
+            document.getElementById('telegramModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('telegramModal').style.display = 'none';
+        }
+
+        // بستن مدال با کلیک خارج از محتوا
+        document.getElementById('telegramModal').addEventListener('click', function(e) {
+            if(e.target === this) closeModal();
+        });
+
+        // بررسی هنگام لود صفحه
+        document.addEventListener('DOMContentLoaded', function() {
+            if(isTelegramBrowser()) {
+                showModal();
+            }
+        });
+    </script>
 
     <!-- Defer non-critical scripts -->
     <script src=script.js defer></script>
