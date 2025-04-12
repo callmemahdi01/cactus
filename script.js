@@ -226,3 +226,34 @@ if ('serviceWorker' in navigator) {
 window.onload = function () {
     type();
 };
+
+function exportToXLSX() {
+    const table = document.getElementById('gradesTable');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    const data = [['نام درس', 'نمره', 'واحد']]; // Header row
+
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('input');
+        const courseName = cells[0].value;
+        const courseGrade = cells[1].value;
+        const courseUnits = cells[2].value;
+        // Only include rows where at least one field has a value
+        if (courseName || courseGrade || courseUnits) {
+             data.push([courseName || '', courseGrade || '', courseUnits || '']);
+        }
+    }
+
+    // Add GPA row if calculated
+    const gpaValue = gpaResult.innerText;
+    if (gpaValue !== '0.0' && gpaValue !== 'NaN') {
+        data.push([]); // Add an empty row for spacing
+        data.push(['معدل کل:', gpaValue]);
+    }
+
+    const worksheet = XLSX.utils.aoa_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "نمرات");
+
+    // Trigger file download
+    XLSX.writeFile(workbook, "Cactus_Grades.xlsx");
+}

@@ -87,6 +87,9 @@
                 <box id=gpaResult>0.0</box>
                 <button class="button calculate" onclick=calculateGPA()>محاسبه معدل</button>
             </div>
+            <div class="export_button_container">
+                <button class="button export" onclick="exportToXLSX()">خروجی اکسل</button>
+            </div>
         </div>
     </div>
 
@@ -94,6 +97,7 @@
     <button id=scrollToTopBtn onclick=scrollToTop()>بازگشت به ابتدای صفحه</button>
 
     <!-- Defer non-critical scripts -->
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     <script src=script.js defer></script>
 
     <!-- Google tag (gtag.js) -->

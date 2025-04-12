@@ -291,6 +291,11 @@ footer {
         margin: 0px 19%;
     }
 
+    .export_button_container {
+        width: 62%;
+        margin: 0 auto;
+    }
+
     footer {
         width: 60%;
         margin: 0rem 20%;
@@ -319,4 +324,25 @@ footer {
 
 #scrollToTopBtn.show {
     display: block;
+}
+
+.export_button_container {
+    text-align: center; /* Center the button within the container */
+}
+
+button.export {
+    display: block; /* Make it a block element */
+    width: calc(100% - 1.4rem); /* Full width minus margins */
+    margin: 10px; /* Match other full-width buttons */
+    height: 50px;
+    background-color: #1e88e5; /* Keeping color consistent with dark theme, adjust if needed */
+    color: white;
+}
+
+button.export:hover {
+    background-color: #1565c0; /* Darker shade on hover */
+}
+
+button.calculate:hover {
+    background-color: #ffcc00;
 }
