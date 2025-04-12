@@ -161,7 +161,7 @@ button.calculate {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-bottom: 8rem;
+    margin-bottom: 10px;
 }
 
 button.calculate:hover {
@@ -182,7 +182,7 @@ button.calculate:hover {
     text-align: left;
     font-weight: bold;
     direction: ltr;
-    margin-bottom: 8rem;
+    margin-bottom: 10px;
     font-size: 1.5rem;
     transition: 200ms;
 }
@@ -295,6 +295,11 @@ footer {
         margin: 0px 19%;
     }
 
+    .export_button_container {
+        width: 62%;
+        margin: 0 auto;
+    }
+
     footer {
         width: 60%;
         margin: 0rem 20%;
@@ -334,25 +339,12 @@ button.export {
     width: calc(100% - 1.4rem); /* Full width minus margins */
     margin: 10px; /* Match other full-width buttons */
     height: 50px;
-    background-color: #444; /* Example color, change if needed */
-    color: white;
+    /* Remove specific colors to inherit default button style */
+    /* background-color: #444; */ 
+    /* color: white; */
 }
 
-button.export:hover {
-    background-color: #1565c0; /* Darker shade on hover */
-}
-
-.cal_resualt {
-    width: 62%;
-    margin: 0px 19%;
-}
-
-.export_button_container { /* Added for larger screens */
-    width: 62%;
-    margin: 0 auto; /* Center the container */
-}
-
-footer {
-    width: 60%;
-    margin: 0rem 20%;
-}
+/* Remove specific hover, inherit default */
+/* button.export:hover {
+    background-color: #ff3b2f; 
+} */

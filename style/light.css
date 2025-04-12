@@ -160,11 +160,15 @@ button.calculate {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-bottom: 8rem;
+    margin-bottom: 10px;
 }
 
 button.calculate:hover {
     background-color: #ffdd57;
+    font-weight: bold;
+    direction: ltr;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
 #gpaResult {
@@ -181,12 +185,8 @@ button.calculate:hover {
     text-align: left;
     font-weight: bold;
     direction: ltr;
-    margin-bottom: 8rem;
+    margin-bottom: 10px;
     font-size: 1.5rem;
-}
-
-button.calculate:hover {
-    background-color: #ffcc00;
 }
 
 #button_x {
@@ -335,14 +335,12 @@ button.export {
     width: calc(100% - 1.4rem); /* Full width minus margins */
     margin: 10px; /* Match other full-width buttons */
     height: 50px;
-    background-color: #1e88e5; /* Keeping color consistent with dark theme, adjust if needed */
-    color: white;
+    /* Remove specific colors to inherit default button style */
+    /* background-color: hsla(212, 72%, 59%, 0.6); */
+    /* color: #000; */
 }
 
-button.export:hover {
-    background-color: #1565c0; /* Darker shade on hover */
-}
-
-button.calculate:hover {
-    background-color: #ffcc00;
-}
+/* Remove specific hover, inherit default */
+/* button.export:hover {
+    background-color: #357abd;
+} */
