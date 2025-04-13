@@ -75,24 +75,19 @@ function saveGrades() {
 function loadGrades() {
     const courses = JSON.parse(localStorage.getItem('courses')) || [];
     const tableBody = document.getElementById('gradesTable').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = '';
 
-    // اگر دوره‌ای در localStorage وجود داشت، آنها را بارگذاری کن
-    if (courses.length > 0) {
-        tableBody.innerHTML = '';  // محتوای جدول را فقط در صورت وجود داده پاک می‌کنیم
-
-        courses.forEach((course, index) => {
-            const newRow = tableBody.insertRow();
-            newRow.innerHTML = `
-                <td class="row-number">${index + 1}</td>
-                <td><input type="text" name="courseName" value="${course.name}" placeholder="(اختیاری)"></td>
-                <td><input type="number" name="courseGrade" value="${course.grade}" placeholder="از 20 نمره" max="20" min="0"></td>
-                <td><input type="number" name="courseUnits" value="${course.units}" placeholder="مثلا 2 واحد"></td>
-                <td><button id="button_x" onclick="removeRow(this)">X</button></td>
-            `;
-        });
-        updateRowNumbers();
-    }
-    // اگر هیچ دوره‌ای وجود نداشت، کاری انجام نمی‌دهیم و ردیف پیش‌فرض HTML حفظ می‌شود
+    courses.forEach((course, index) => {
+        const newRow = tableBody.insertRow();
+        newRow.innerHTML = `
+            <td class="row-number">${index + 1}</td>
+            <td><input type="text" name="courseName" value="${course.name}" placeholder="(اختیاری)"></td>
+            <td><input type="number" name="courseGrade" value="${course.grade}" placeholder="از 20 نمره" max="20" min="0"></td>
+            <td><input type="number" name="courseUnits" value="${course.units}" placeholder="مثلا 2 واحد"></td>
+            <td><button id="button_x" onclick="removeRow(this)">X</button></td>
+        `;
+    });
+    updateRowNumbers();
 }
 
 function clearCache() {
