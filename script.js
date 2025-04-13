@@ -92,23 +92,7 @@ function loadGrades() {
 
 function clearCache() {
     localStorage.clear();
-    const tableBody = document.getElementById('gradesTable').getElementsByTagName('tbody')[0];
-    const rows = tableBody.getElementsByTagName('tr');
-    
-    // به جای بارگذاری مجدد صفحه، محتوای تمام ردیف‌ها را پاک می‌کنیم
-    for (let i = 0; i < rows.length; i++) {
-        const inputs = rows[i].getElementsByTagName('input');
-        for (let j = 0; j < inputs.length; j++) {
-            inputs[j].value = '';
-        }
-        rows[i].classList.add('empty-row');
-    }
-    
-    // مقدار GPA را هم صفر می‌کنیم
-    document.getElementById('gpaResult').innerText = '0.00';
-    
-    // نمایش پیام موفقیت
-    showSuccessMessage();
+    location.reload();
 }
 
 function addRequiredCourses() {
