@@ -75,11 +75,11 @@ function saveGrades() {
 function loadGrades() {
     const courses = JSON.parse(localStorage.getItem('courses')) || [];
     const tableBody = document.getElementById('gradesTable').getElementsByTagName('tbody')[0];
-    
+
     // اگر دوره‌ای در localStorage وجود داشت، آنها را بارگذاری کن
     if (courses.length > 0) {
         tableBody.innerHTML = '';  // محتوای جدول را فقط در صورت وجود داده پاک می‌کنیم
-        
+
         courses.forEach((course, index) => {
             const newRow = tableBody.insertRow();
             newRow.innerHTML = `
@@ -92,7 +92,7 @@ function loadGrades() {
         });
         updateRowNumbers();
     }
-    // اگر هیچ دوره‌ای وجود نداشت، جدول خالی را حفظ می‌کنیم (هیچ کاری انجام نمی‌دهیم)
+    // اگر هیچ دوره‌ای وجود نداشت، کاری انجام نمی‌دهیم و ردیف پیش‌فرض HTML حفظ می‌شود
 }
 
 function clearCache() {
